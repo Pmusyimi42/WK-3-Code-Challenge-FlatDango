@@ -85,7 +85,7 @@ function handleGetFirstMovie(movie){
     movieDescription.innerText = movie.description
     poster.src = movie.poster
     showTime.innerText = movie.showtime
-    runTime.innerText = movie.runtime
+    runTime.innerText = (movie.runtime + " minutes")
     maximumCapacity = movie.capacity
     capacity.innerText = movie.capacity
     soldTickets.innerText = ticketSold
