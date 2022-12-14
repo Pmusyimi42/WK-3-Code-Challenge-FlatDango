@@ -40,17 +40,26 @@ function getAllMovie(){
 // display movie details when user clicks
 
 function handleGetAllMovie(movie){
-    const movieN = document.createElement('li');
-    movieN.style.cursor = "pointer";
+    const movieList = document.createElement('li');
+    
+    movieList.style.cursor = "pointer";
 
     const movieLink = document.createElement('a')
-    movieN.innerText = movie.title
-    movieLink.appendChild(movieN);
+    movieList.innerText = movie.title
+    // const scheduledMovie = document.getElementById('scheduledMovie')
+    const delButton = document.createElement('button');
+    delButton.innerText = 'X'
+    movieList.appendChild(delButton)
+    movieName.appendChild(movieList);
     movieName.appendChild(movieLink);
-    movieLink.addEventListener('click', (event)=>{
-        handleGetFirstMovie(movie)
-        
+    movieList.addEventListener('click', ()=>{
+        handleGetFirstMovie(movie)    
     })
+    delButton.addEventListener('click', (event)=>{
+        delButton.parentNode.remove()
+        fetch(`http://localhost:3000/films/${currentId}`, {
+            method : 'DELETE',})
+   });
 }
 
 // update movie details when user buys a ticket
